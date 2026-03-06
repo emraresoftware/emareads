@@ -1,0 +1,22 @@
+{
+  "slug": "emareads",
+  "name": "Emare Ads",
+  "github_repo": "emraresoftware/emareads",
+  "branch": "main",
+  "dc": "local",
+  "server_host": null,
+  "server_ssh_port": 22,
+  "remote_path": "/opt/emareads",
+  "stack": "python-gunicorn",
+  "port": 8305,
+  "domain": "",
+  "deploy_commands": [
+    "cd /opt/emareads",
+    "git pull origin main",
+    "source venv/bin/activate && pip install -r requirements.txt -q",
+    "sudo systemctl restart emareads"
+  ],
+  "restart_command": "systemctl status emareads --no-pager",
+  "auto_deploy_on_push": false,
+  "health_check_url": null
+}
